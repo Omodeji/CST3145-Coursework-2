@@ -11,7 +11,7 @@ var app = new Vue({
     sortAttribute: "subject",
     sortOrder: "asc",
     sortedLessons: [],
-    baseURL: "http://localhost:3000/",
+    baseURL: "https://cw2-backend.vercel.app/",
   },
 
   created() {
