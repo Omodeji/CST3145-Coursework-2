@@ -62,8 +62,8 @@ var app = new Vue({
         body: JSON.stringify(order),
       });
       alert("Order Submitted");
-      this.cart = []
-      this.showProduct = true
+      this.cart = [];
+      this.showProduct = true;
     },
 
     addToCart(lesson) {
