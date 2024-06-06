@@ -25,17 +25,9 @@ var app = new Vue({
     },
 
     async searchLessons() {
-      var query = {
-        search: this.searchTerm,
-        sort: this.sortAttribute,
-        order: this.sortOrder,
-      };
+      var query = `?search=${this.searchTerm}&sort=${this.sortAttribute}&order=${this.sortOrder}`
 
-      var res = await fetch(`${this.baseURL}search/collection/lessons`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(query),
-      });
+      var res = await fetch(`${this.baseURL}search/collection/lessons/${query}`);
       this.lessons = await res.json();
     },
 
@@ -47,7 +39,7 @@ var app = new Vue({
       };
 
       // Update lessons
-      this.cart.forEach((item) => {
+      this.cart.forEach((item) => { 
         fetch(`${this.baseURL}collection/lessons/${item.lesson._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
